@@ -8,6 +8,23 @@ const Calc = () => {
   const [label, setLabel] = useState("Disable");
   const [buttons, setButtons] = useState([]);
   const [result, setResult] = useState("");
+  const [calc, setCalc] = useState("");
+  const ops = ["+", "-"];
+
+  const updateCalc = (event) => {
+    const value = event.target.value;
+    if (
+      (ops.includes(value) && calc === "") ||
+      (ops.includes(value) && ops.includes(calc.slice(-1)))
+    ) {
+      return;
+    }
+    setCalc(calc + value);
+
+    if (!ops.includes(value)) {
+      setResult(eval(calc + value).toString());
+    }
+  };
 
   const handleAddRow = () => {
     const newRow = [...rows, []];
@@ -16,6 +33,11 @@ const Calc = () => {
 
   const handleChange = (event, index) => {
     const value = event.target.value;
+
+    if (value) {
+      updateCalc(event);
+    }
+
     const inputData = [...rows];
     inputData[index] = value;
     setRows(inputData);
@@ -44,10 +66,10 @@ const Calc = () => {
               return (
                 <div key={index} className="secondOperand">
                   {index !== 0 && (
-                    <select>
+                    <select onChange={(e) => updateCalc(e)}>
                       <option selected>select</option>
-                      <option>+</option>
-                      <option>-</option>
+                      <option value="+">+</option>
+                      <option value="-">-</option>
                     </select>
                   )}
 
