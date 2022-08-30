@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: linear-gradient(to right, #85ffbd, #fffb7d);
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.heading {
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.secondOperand {
+  display: flex;
+  justify-content: flex-end;
+}
+.output {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+button,
+select,
+input,
+.output {
+  margin: 1rem;
+  padding: 1rem;
+  border: none;
+}
+button:hover,
+button:focus {
+  background-color: rgba(16, 48, 152, 0.75);
+  color: white;
+}
