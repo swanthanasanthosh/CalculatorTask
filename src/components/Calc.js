@@ -47,6 +47,10 @@ const Calc = () => {
     const deleteRow = [...rows];
     deleteRow.splice(index, 1);
     setRows(deleteRow);
+
+    if (calc === "") {
+      return;
+    }
   };
 
   const handleDisable = (event, index) => {
